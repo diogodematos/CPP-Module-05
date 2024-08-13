@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 12:33:43 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/12 17:18:04 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/13 14:42:17 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,10 @@ const std::string Bureaucrat::getName()
 size_t Bureaucrat::getGrade()
 {
     return _grade;
+}
+
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat)
+{
+    os << bureaucrat._name << ", bureaucrat grade " << bureaucrat._grade << '.' << std::endl;
+    return os;
 }

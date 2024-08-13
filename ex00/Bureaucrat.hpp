@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 11:23:55 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/12 16:42:05 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/13 14:33:52 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ class Bureaucrat
         
         const std::string getName();
         size_t getGrade();
+
+        friend std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);
 };
 
 #endif
