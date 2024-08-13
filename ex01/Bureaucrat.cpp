@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 12:33:43 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/13 16:17:54 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/13 15:49:21 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ Bureaucrat::Bureaucrat(const Bureaucrat &copy)
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &bureaucrat)
 {
     if (this != &bureaucrat)
+    {
+        const std::string _name = bureaucrat._name;
         _grade = bureaucrat._grade;
+    }
     return *this;
     std::cout << "Copy Operator Bureaucrat " << _name << " with " << _grade << " Grade Created" << std::endl;
 }
