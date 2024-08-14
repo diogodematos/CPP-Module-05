@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 11:23:55 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/13 14:33:52 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/14 12:37:30 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <string>
 #include <iostream>
 #include <stdexcept>
+
+class Form;
 
 class Bureaucrat
 {
@@ -48,6 +50,8 @@ class Bureaucrat
         size_t getGrade();
 
         friend std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);
+
+        void signForm(Form &form);
 };
 
 #endif

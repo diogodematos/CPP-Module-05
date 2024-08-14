@@ -6,14 +6,18 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 14:53:35 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/13 16:37:42 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/14 12:34:48 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_H
 # define FORM_H
 
-#include "Bureaucrat.hpp"
+#include <iostream>
+#include <string>
+#include <stdexcept>
+
+class Bureaucrat;
 
 class Form 
 {
@@ -41,14 +45,14 @@ class Form
         //     const char* what() const throw();
         // };
 
-        std::string getName;
-        bool getSign;
-        int getGradeSign;
-        int getGradeExecute;
+        std::string getName();
+        bool getSign();
+        size_t getGradeSign();
+        size_t getGradeExecute();
 
         friend std::ostream &operator<<(std::ostream &os, const Form &form);
 
-        bool beSigned();  
+        void beSigned(Bureaucrat &bureaucrat);  
 };
 
 #endif

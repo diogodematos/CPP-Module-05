@@ -6,18 +6,19 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 15:29:40 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/13 16:38:18 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/14 12:42:54 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
-Form::Form(const std::string name, int gradeSign, int gradeExecute) : _name(name), _sign(0), _gradeSign(gradeSign), _gradeExecute(gradeExecute)
+Form::Form(const std::string name, int gradeSign, int gradeExecute) : _name(name), _sign(false), _gradeSign(gradeSign), _gradeExecute(gradeExecute)
 {
-    if ((gradeExecute || gradeSign) < 1)
-        throw GradeTooHighException();
-    if ((gradeExecute || gradeExecute) > 150)
-        throw GradeTooHighException();
+    if (gradeExecute < 1 || gradeSign < 1)
+        throw Bureaucrat::GradeTooHighException();
+    if (gradeExecute > 150 || gradeSign > 150)
+        throw Bureaucrat::GradeTooLowException();
     std::cout << "Form " << _name << " Created" << std::endl;
 }
 
@@ -41,12 +42,36 @@ Form::~Form()
     std::cout << "Form " << _name << " Destroyed" << std::endl;
 }
 
-const char* Bureaucrat::GradeTooHighException::what() const throw()
+std::string Form::getName()
 {
-    return ("Too High!");
+    return _name;
 }
 
-const char* Bureaucrat::GradeTooLowException::what() const throw()
+bool Form::getSign()
 {
-    return ("Too Low!");
+    return _sign;
+}
+
+size_t Form::getGradeSign()
+{
+    return _gradeSign;
+}
+
+size_t Form::getGradeExecute()
+{
+    return _gradeExecute;
+}
+
+void Form::beSigned(Bureaucrat &bureaucrat)
+{
+    if(getGradeSign() > bureaucrat.getGrade())
+        _sign = true;
+    else
+        _sign = false;
+}
+
+std::ostream &operator<<(std::ostream &os, const Form &form)
+{
+    os << "Form " << form._name << ". Signed: " << form._sign << ". Grade to Sign: " << form._gradeSign << ". Grade to Execute: " << form._gradeExecute << '.' << std::endl;
+    return os;
 }
