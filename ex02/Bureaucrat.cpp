@@ -6,12 +6,13 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 12:33:43 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/14 15:22:57 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/14 17:14:56 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(grade)
 {
@@ -73,7 +74,7 @@ const std::string Bureaucrat::getName()
     return _name;
 }
 
-size_t Bureaucrat::getGrade()
+size_t Bureaucrat::getGrade() const
 {
     return _grade;
 }
@@ -89,6 +90,20 @@ void Bureaucrat::signForm(Form &form)
     try
     {
         form.beSigned(*this);
+        std::cout << _name << " signed " << form.getName() << std::endl;
+    }
+    catch(const std::exception& e) 
+    {
+        std::cout << _name << " couldn’t sign " << form.getName() << " because the grade are more low that necessary to sign!" << std::endl;
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+}
+
+void Bureaucrat::executeForm(const Form &form)
+{
+    try
+    {
+        form.execute(*this);
         std::cout << _name << " signed " << form.getName() << std::endl;
     }
     catch(const std::exception& e) 

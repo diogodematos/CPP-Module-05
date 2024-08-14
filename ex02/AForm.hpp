@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 14:53:35 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/14 15:22:48 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/14 17:17:13 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,24 +35,16 @@ class Form
         Form &operator=(const Form &form);
         ~Form();
 
-        // class GradeTooLowException : public std::exception
-        // {
-        //     const char* what() const throw();
-        // };
-
-        // class GradeTooHighException : std::exception
-        // {
-        //     const char* what() const throw();
-        // };
-
-        std::string getName();
+        std::string getName() const;
         bool getSign();
-        size_t getGradeSign();
-        size_t getGradeExecute();
+        size_t getGradeSign() const;
+        size_t getGradeExecute()const;
 
         friend std::ostream &operator<<(std::ostream &os, const Form &form);
 
-        void beSigned(Bureaucrat &bureaucrat) = 0;
+        void beSigned(Bureaucrat &bureaucrat);
+
+        virtual void execute(const Bureaucrat &executor) const = 0;
 };
 
 #endif

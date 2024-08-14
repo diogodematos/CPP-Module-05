@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 11:23:55 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/14 12:37:30 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/14 17:11:32 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,12 @@ class Bureaucrat
         void DecrementGrade();
         
         const std::string getName();
-        size_t getGrade();
+        size_t getGrade() const;
 
         friend std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);
 
         void signForm(Form &form);
+        void executeForm(const Form &form);
 };
 
 #endif

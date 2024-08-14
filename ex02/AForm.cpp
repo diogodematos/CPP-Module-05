@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 15:29:40 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/14 15:03:14 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/14 17:17:27 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
 Form::Form(const std::string name, int gradeSign, int gradeExecute) : _name(name), _sign(false), _gradeSign(gradeSign), _gradeExecute(gradeExecute)
@@ -42,22 +42,22 @@ Form::~Form()
     std::cout << "Form " << _name << " Destroyed" << std::endl;
 }
 
-std::string Form::getName()
+std::string Form::getName() const
 {
     return _name;
 }
 
-bool Form::getSign()
+bool Form::getSign() 
 {
     return _sign;
 }
 
-size_t Form::getGradeSign()
+size_t Form::getGradeSign() const
 {
     return _gradeSign;
 }
 
-size_t Form::getGradeExecute()
+size_t Form::getGradeExecute() const
 {
     return _gradeExecute;
 }
@@ -67,7 +67,7 @@ void Form::beSigned(Bureaucrat &bureaucrat)
     if(getGradeSign() > bureaucrat.getGrade())
         _sign = true;
     else
-        throw Bureaucrat::GradeTooLowException();;
+        throw Bureaucrat::GradeTooLowException();
 }
 
 std::ostream &operator<<(std::ostream &os, const Form &form)
