@@ -6,12 +6,12 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 12:38:14 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/14 15:09:48 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/14 15:23:02 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 int main()
 {
