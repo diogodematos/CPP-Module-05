@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 14:47:10 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/16 11:54:20 by dcarrilh         ###   ########.fr       */
+/*   Created: 2024/08/16 12:51:08 by dcarrilh          #+#    #+#             */
+/*   Updated: 2024/08/16 14:04:26 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_H
-# define SHRUBBERYCREATIONFORM_H
+#ifndef ROBOTOMYREQUESTFORM_H
+# define ROBOTOMYREQUESTFORM_H
 
 #include "AForm.hpp"
 #include <fstream>
+#include <cstdlib> 
 
 class Bureaucrat;
 
-class ShrubberyCreationForm : public Form
+class RobotomyRequestForm : public Form
 {
     private:
 
@@ -26,14 +27,14 @@ class ShrubberyCreationForm : public Form
 
     public:
 
-        ShrubberyCreationForm(const std::string target);
-        ShrubberyCreationForm(const ShrubberyCreationForm &copy);
-        ShrubberyCreationForm &operator=(const ShrubberyCreationForm &shru);
-        ~ShrubberyCreationForm();
+        RobotomyRequestForm(const std::string target);
+        RobotomyRequestForm(const RobotomyRequestForm &copy);
+        RobotomyRequestForm &operator=(const RobotomyRequestForm &robot);
+        ~RobotomyRequestForm();
 
         void execute(const Bureaucrat &executor) const;
 
-        friend std::ostream &operator<<(std::ostream &os, const ShrubberyCreationForm &shru);
+        friend std::ostream &operator<<(std::ostream &os, const RobotomyRequestForm &robot);
 };
 
 #endif

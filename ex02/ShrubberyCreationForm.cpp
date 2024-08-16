@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 15:52:05 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/14 17:23:14 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/16 12:09:12 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,11 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
-    }
-    
+    } 
+}
+
+std::ostream &operator<<(std::ostream &os, const ShrubberyCreationForm &shru)
+{
+        os << "Shru Form with " << shru._target << " target!" << std::endl;
+        return os;
 }

@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 14:53:35 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/14 17:17:13 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/16 14:19:34 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Form
         Form(const std::string name, int gradeSign, int gradeExecute);
         Form(const Form &copy);
         Form &operator=(const Form &form);
-        ~Form();
+        virtual ~Form();
 
         std::string getName() const;
         bool getSign();
