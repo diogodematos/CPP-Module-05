@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:54:36 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/16 18:10:21 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/20 12:31:15 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
     try
     {
-        if(getGradeSign() > executor.getGrade())
+        if(getGradeExecute() > executor.getGrade())
         {
             int n = 2;
             if ((rand() % n) == 1)

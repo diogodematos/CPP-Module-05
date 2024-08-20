@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 15:29:40 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/16 14:19:29 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/20 15:19:26 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,13 @@ void Form::beSigned(Bureaucrat &bureaucrat)
         _sign = true;
     else
         throw Bureaucrat::GradeTooLowException();
+}
+
+bool Form::isSigned() const
+{
+    if (_sign == true)
+        return true;
+    return false;
 }
 
 std::ostream &operator<<(std::ostream &os, const Form &form)

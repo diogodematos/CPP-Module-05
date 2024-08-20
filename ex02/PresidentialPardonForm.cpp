@@ -6,14 +6,14 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 18:44:48 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/16 18:55:24 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/20 15:01:46 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 #include "Bureaucrat.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string target) : Form("PresidentialPardonForm", 72, 45), _target(target)
+PresidentialPardonForm::PresidentialPardonForm(const std::string target) : Form("PresidentialPardonForm", 25, 5), _target(target)
 {
     std::cout << "Presi Form Created" << std::endl;
 }
@@ -40,9 +40,9 @@ void PresidentialPardonForm::execute(const Bureaucrat &executor) const
 {
     try
     {
-        if(getGradeSign() > executor.getGrade())
+        if(getGradeExecute() > executor.getGrade())
         {
-            
+            std::cout << _target << " has been pardoned by Zaphod Beeblebrox!" << std::endl; 
         }
         else
             throw Bureaucrat::GradeTooLowException();

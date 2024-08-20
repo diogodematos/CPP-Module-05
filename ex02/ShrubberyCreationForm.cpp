@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 15:52:05 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/16 12:09:12 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/20 12:31:23 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 {
     try
     {
-        if(getGradeSign() > executor.getGrade())
+        if(getGradeExecute() > executor.getGrade())
         {
             std::ofstream outfile((_target + "_shrubbery").c_str());
             if (outfile.is_open()) 

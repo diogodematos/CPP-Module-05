@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 14:53:35 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/16 14:19:34 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/20 15:20:04 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ class Form
         friend std::ostream &operator<<(std::ostream &os, const Form &form);
 
         void beSigned(Bureaucrat &bureaucrat);
+        bool isSigned() const;
 
         virtual void execute(const Bureaucrat &executor) const = 0;
 };
