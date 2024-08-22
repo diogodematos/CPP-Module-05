@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 12:38:14 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/20 15:52:08 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:43:44 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,86 +15,31 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-
-// int main()
-// {
-//     try 
-//     {
-//         Bureaucrat valid("valid", 10);
-//         std::cout << std::endl;
-//         const Form* Formula = new ShrubberyCreationForm("home");
-//         const Form* Robo = new RobotomyRequestForm("local");
-//         std::cout << *Formula << std::endl;
-//         std::cout << std::endl;
-//         valid.executeForm(*Formula);
-//         std::cout << *Formula << std::endl;
-//         valid.executeForm(*Robo);
-//         valid.executeForm(*Robo);
-//         std::cout << *Robo << std::endl;
-//         valid.executeForm(*Robo);
-//         std::cout << std::endl;
-//         std::cout << std::endl;
-//         std::cout << valid;
-//         std::cout << std::endl;
-//         delete (Formula);
-//     } 
-//     catch (const std::exception& e) 
-//     {
-//         std::cerr << "Exception: " << e.what() << std::endl;
-//     }
-// }
-
-// int main()
-// {
-//     try 
-//     {
-//         Bureaucrat valid("valid", 145);
-//         std::cout << std::endl;
-//         //const Form* Robo = new RobotomyRequestForm("local");
-//         RobotomyRequestForm Robo("local");
-//         std::cout << Robo << std::endl;
-//         std::cout << std::endl;
-//         valid.executeForm(Robo);
-//         valid.signForm(Robo);
-//         std::cout << Robo << std::endl;
-//         valid.executeForm(Robo);
-//         //valid.executeForm(Robo);
-//         std::cout << Robo << std::endl;
-//         //valid.executeForm(Robo);
-//         std::cout << std::endl;
-//         std::cout << std::endl;
-//         std::cout << valid;
-//         std::cout << std::endl;
-//         //delete (Robo);
-//     } 
-//     catch (const std::exception& e) 
-//     {
-//         std::cerr << "Exception: " << e.what() << std::endl;
-//     }
-// }
+#include "Intern.hpp"
 
 int main()
 {
     try 
     {
         Bureaucrat valid("valid", 1);
+        Form* Lol1;
+        Form* Lol2;
+        Form* Lol3;
+        Intern Test;
         std::cout << std::endl;
-        //const Form* Robo = new RobotomyRequestForm("local");
-        PresidentialPardonForm Robo("local");
-        std::cout << Robo << std::endl;
+        Lol1 = Test.makeForm("shrubbery creation", "Bob");
+        Lol2 = Test.makeForm("presidential pardon", "Bob");
+        Lol3 = Test.makeForm("robotmy request", "Bob");
         std::cout << std::endl;
-        valid.executeForm(Robo);
-        valid.signForm(Robo);
-        std::cout << Robo << std::endl;
-        valid.executeForm(Robo);
-        //valid.executeForm(Robo);
-        std::cout << Robo << std::endl;
-        //valid.executeForm(Robo);
-        std::cout << std::endl;
+        valid.executeForm(*Lol2);
+        valid.signForm(*Lol2);
+        valid.executeForm(*Lol2);
         std::cout << std::endl;
         std::cout << valid;
         std::cout << std::endl;
-        //delete (Robo);
+        delete Lol1;
+        delete Lol2;
+        delete Lol3;
     } 
     catch (const std::exception& e) 
     {

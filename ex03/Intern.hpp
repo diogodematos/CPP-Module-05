@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 16:35:10 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/20 16:39:15 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:09:15 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include <iostream>
 #include <string>
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 class Intern
 {
@@ -25,7 +28,18 @@ class Intern
         Intern &operator=(const Intern &intern);
         ~Intern();
 
-        void makeForm(std::string name, std::string target);
+        Form* shrubbery(std::string target);
+        Form* robotomy(std::string target);
+        Form* presidential(std::string target);
+        
+        Form* makeForm(std::string name, std::string target);
+
+        class WrongForm : public std::exception
+        {
+            public:
+
+                const char* what() const throw();
+        };
 };
 
 #endif

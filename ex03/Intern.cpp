@@ -6,11 +6,14 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 12:41:48 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/21 15:24:00 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:44:35 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Intern.cpp"
+#include "Intern.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 Intern::Intern()
 {
@@ -30,35 +33,65 @@ Intern &Intern::operator=(const Intern &intern)
     return *this;
 }
 
-Intern::~Intern
+Intern::~Intern()
 {
     std::cout << "Intern Destroyed" << std::endl;
 }
 
-Void Intern::shrubbery()
+Form* Intern::shrubbery(std::string target)
 {
-    return (new Shrubbery::Shrubbery);
+    std::cout << "Intern creates Shrubbery Form" << std::endl;
+    return new ShrubberyCreationForm(target);
 }
 
-void Intern::makeform(std::string name, std::string target)
+Form* Intern::robotomy(std::string target)
 {
-    std::string forms[3] = {"shrubbery creation", "robotomy request", "presidential pardon"}
-    for(int i = 0; j < 5; j++)
+    std::cout << "Intern creates Robotomy Form" << std::endl;
+    return new RobotomyRequestForm(target);
+}
+
+Form* Intern::presidential(std::string target)
+{
+    std::cout << "Intern creates Presidential Form" << std::endl;
+    return new PresidentialPardonForm(target);
+}
+
+const char* Intern::WrongForm::what() const throw()
+{
+    return ("This Form Don't Exists");
+}
+
+Form* Intern::makeForm(std::string name, std::string target)
+{
+    std::string form[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
+    
+    try
     {
-        switch(i)
+        for (int i = 0; i < 4; i++)
         {
-            case 0:
-                (this->shrubbery());
-                break;
-            case 1:
-                (this->robotomy());
-                break;
-            case 2:
-                (this->presidential());
-                break;
-            default:
-                std::cerr << "Form isn't correct" << std::endl;
-                break; 
+            if (i == 3 || form[i] == name)
+            {
+                switch(i)
+                {
+                    case 0:
+                        return (this->shrubbery(target));
+                        break;
+                    case 1:
+                        return (this->robotomy(target));
+                        break;
+                    case 2:
+                        return (this->presidential(target));
+                        break;
+                    default:
+                        throw WrongForm();
+                        break; 
+                }
+            }
         }
     }
+    catch(const std::exception& e)
+    {
+        std::cerr << "Exception: " << e.what() << '\n';
+    }
+    return 0;
 }
