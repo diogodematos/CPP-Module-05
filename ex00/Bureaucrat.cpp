@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 12:33:43 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/13 16:17:54 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/24 11:52:02 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,34 @@ Bureaucrat::~Bureaucrat()
 
 void Bureaucrat::IncrementGrade()
 {
-    if (_grade < 2)
-        throw GradeTooHighException();
-    _grade--;
+    try
+    {
+        if (_grade < 2)
+        {
+            throw GradeTooHighException();
+        }
+        _grade--;
+    }
+    catch (const std::exception& e) 
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
 }
 
 void Bureaucrat::DecrementGrade()
 {
-    if (_grade > 149)
-        throw GradeTooLowException();
-    _grade++;
+    try
+    {
+        if (_grade > 149)
+        {
+            throw GradeTooLowException();
+        }
+        _grade++;
+    }
+    catch (const std::exception& e) 
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()

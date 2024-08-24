@@ -19,6 +19,6 @@ clean:
 		@$(RM) $(OBJ)
 		
 fclean: clean
-		@$(RM) $(NAME)
+		@$(RM) $(NAME) $(wildcard *_shrubbery)
 		
 re: fclean all
