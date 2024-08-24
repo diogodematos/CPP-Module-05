@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 12:38:14 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/22 16:43:44 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/24 13:47:26 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int main()
         Lol2 = Test.makeForm("presidential pardon", "Bob");
         Lol3 = Test.makeForm("robotmy request", "Bob");
         std::cout << std::endl;
-        valid.executeForm(*Lol2);
-        valid.signForm(*Lol2);
-        valid.executeForm(*Lol2);
+        valid.executeForm(*Lol1);
+        valid.signForm(*Lol1);
+        valid.executeForm(*Lol1);
         std::cout << std::endl;
         std::cout << valid;
         std::cout << std::endl;

@@ -1,4 +1,4 @@
-NAME = Bureaucrat
+NAME = Intern
 
 SRC = Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp main.cpp\
 	
@@ -19,6 +19,6 @@ clean:
 		@$(RM) $(OBJ)
 		
 fclean: clean
-		@$(RM) $(NAME)
+		@$(RM) $(NAME) $(wildcard *_shrubbery)
 		
 re: fclean all

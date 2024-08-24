@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 12:41:48 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/22 16:44:35 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/24 13:46:47 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,33 +61,54 @@ const char* Intern::WrongForm::what() const throw()
     return ("This Form Don't Exists");
 }
 
+// Form* Intern::makeForm(std::string name, std::string target)
+// {
+//     std::string form[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
+    
+//     try
+//     {
+//         for (int i = 0; i < 4; i++)
+//         {
+//             if (i == 3 || form[i] == name)
+//             {
+//                 switch(i)
+//                 {
+//                     case 0:
+//                         return (this->shrubbery(target));
+//                         break;
+//                     case 1:
+//                         return (this->robotomy(target));
+//                         break;
+//                     case 2:
+//                         return (this->presidential(target));
+//                         break;
+//                     default:
+//                         throw WrongForm();
+//                         break; 
+//                 }
+//             }
+//         }
+//     }
+//     catch(const std::exception& e)
+//     {
+//         std::cerr << "Exception: " << e.what() << '\n';
+//     }
+//     return 0;
+// }
+
 Form* Intern::makeForm(std::string name, std::string target)
 {
+    Form* (Intern::*makeForm[3])(std::string target) = {&Intern::shrubbery, &Intern::robotomy, &Intern::presidential};
     std::string form[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
     
     try
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 3; i++)
         {
-            if (i == 3 || form[i] == name)
-            {
-                switch(i)
-                {
-                    case 0:
-                        return (this->shrubbery(target));
-                        break;
-                    case 1:
-                        return (this->robotomy(target));
-                        break;
-                    case 2:
-                        return (this->presidential(target));
-                        break;
-                    default:
-                        throw WrongForm();
-                        break; 
-                }
-            }
+            if (form[i] == name)
+                return (this->*makeForm[i])(target);
         }
+        throw WrongForm();
     }
     catch(const std::exception& e)
     {
